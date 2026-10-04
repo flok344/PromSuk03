@@ -1,0 +1,2173 @@
+```html
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>พร้อมสุขคลินิกเวชกรรม | PromSuk Clinic</title>
+
+  <meta
+    name="description"
+    content="พร้อมสุขคลินิกเวชกรรม อำเภอท่ามะกา จังหวัดกาญจนบุรี ให้บริการตรวจรักษาและคำแนะนำด้านสุขภาพ"
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --primary: #087f83;
+      --primary-dark: #075f63;
+      --primary-light: #eaf7f6;
+      --text: #173536;
+      --muted: #6d7d7e;
+      --white: #ffffff;
+      --bg: #f7fbfb;
+      --border: #e1eeee;
+      --shadow: 0 20px 60px rgba(8, 127, 131, .12);
+      --radius: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Kanit", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(8,127,131,.08);
+      transition: .3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+    }
+
+    .nav-inner {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .logo img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .logo-text {
+      line-height: 1.25;
+    }
+
+    .logo-text strong {
+      display: block;
+      font-size: 18px;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: .5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      padding: 10px 15px;
+      font-size: 14px;
+      color: #526768;
+      border-radius: 10px;
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .nav-call {
+      background: var(--primary);
+      color: white !important;
+      padding: 11px 18px !important;
+      border-radius: 12px !important;
+    }
+
+    .nav-call:hover {
+      background: var(--primary-dark) !important;
+      color: white !important;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 12px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      padding: 125px 0 55px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(8,127,131,.10), transparent 32%),
+        radial-gradient(circle at 90% 70%, rgba(8,127,131,.08), transparent 35%),
+        linear-gradient(180deg, #ffffff 0%, #f5fbfb 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(8,127,131,.035);
+      top: -250px;
+      right: -180px;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    /* ข้อความฝั่งซ้าย */
+
+    .hero-content {
+      padding: 10px 0;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid rgba(8,127,131,.10);
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .hero-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: #26a269;
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(38,162,105,.10);
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 4vw, 62px);
+      line-height: 1.12;
+      font-weight: 600;
+      letter-spacing: -.8px;
+      color: #123d3e;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero-description {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 50px;
+      padding: 0 21px;
+      border-radius: 13px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: .3s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--primary);
+      box-shadow: 0 12px 25px rgba(8,127,131,.20);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(8,127,131,.25);
+    }
+
+    .btn-outline {
+      color: var(--primary);
+      border: 1px solid rgba(8,127,131,.22);
+      background: white;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .hero-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .hero-info-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #667778;
+      font-size: 13px;
+    }
+
+    .hero-info-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--primary);
+      box-shadow: 0 5px 15px rgba(0,0,0,.04);
+    }
+
+    /* =========================
+       HERO IMAGE SLIDER
+    ========================= */
+
+    .hero-visual {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .slider-shell {
+      position: relative;
+      width: 100%;
+      background: white;
+      border: 1px solid rgba(8,127,131,.12);
+      border-radius: 30px;
+      padding: 10px;
+      box-shadow: 0 25px 70px rgba(8,127,131,.15);
+      overflow: hidden;
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      min-height: 430px;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #f1f7f7;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity .8s ease,
+        visibility .8s ease;
+      background: #f4f9f9;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /*
+      สำคัญ:
+      ใช้ contain เพื่อให้เห็นรูปเต็มภาพ
+      ไม่ตัดหัว/ขอบ/รายละเอียดของภาพ
+    */
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      background: #f4f9f9;
+    }
+
+    .slider-label {
+      position: absolute;
+      left: 22px;
+      bottom: 20px;
+      z-index: 5;
+      padding: 8px 14px;
+      background: rgba(255,255,255,.90);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.7);
+      color: var(--primary-dark);
+      border-radius: 30px;
+      font-size: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    }
+
+    /* =========================
+       TRUST BAR
+    ========================= */
+
+    .trust-bar {
+      position: relative;
+      z-index: 5;
+      margin-top: -5px;
+      padding: 0 0 60px;
+    }
+
+    .trust-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 20px 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 6px 10px;
+    }
+
+    .trust-icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 20px;
+    }
+
+    .trust-item strong {
+      display: block;
+      font-size: 14px;
+      color: #254748;
+    }
+
+    .trust-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* =========================
+       SECTION
+    ========================= */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.25;
+      margin-bottom: 13px;
+      color: #183d3e;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* =========================
+       RIGHTS
+    ========================= */
+
+    .rights-section {
+      background: white;
+    }
+
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .right-card {
+      padding: 30px;
+      background: #fbfefe;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      transition: .3s ease;
+    }
+
+    .right-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: rgba(8,127,131,.18);
+    }
+
+    .right-number {
+      font-size: 34px;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .right-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .right-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services {
+      background: var(--bg);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      transition: .3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 15px;
+      font-size: 23px;
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       PROCESS
+    ========================= */
+
+    .process {
+      background: white;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .process-card {
+      position: relative;
+      padding: 25px 18px;
+      text-align: center;
+      background: #fbfefe;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    .process-number {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      font-weight: 600;
+    }
+
+    .process-card h3 {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      background:
+        linear-gradient(180deg, #f5fbfb 0%, #ffffff 100%);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      padding: 10px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-image-inner {
+      width: 100%;
+      min-height: 430px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #f3f8f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 430px;
+      object-fit: contain;
+    }
+
+    .about-content .section-label {
+      margin-bottom: 8px;
+    }
+
+    .about-content h2 {
+      font-size: 38px;
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+
+    .about-content > p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .about-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      color: #536667;
+      font-size: 14px;
+    }
+
+    .about-list li::before {
+      content: "✓";
+      flex-shrink: 0;
+      width: 23px;
+      height: 23px;
+      display: grid;
+      place-items: center;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: bold;
+      margin-top: 2px;
+    }
+
+    /* =========================
+       HOURS
+    ========================= */
+
+    .hours {
+      background: white;
+    }
+
+    .hours-box {
+      max-width: 800px;
+      margin: auto;
+      background: #f8fcfc;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      padding: 35px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 17px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hours-row:last-of-type {
+      border-bottom: 0;
+    }
+
+    .hours-day {
+      font-weight: 500;
+    }
+
+    .hours-time {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .hours-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      padding: 75px 0;
+      background: var(--primary);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before,
+    .cta::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.13);
+    }
+
+    .cta::before {
+      width: 380px;
+      height: 380px;
+      right: -160px;
+      top: -180px;
+    }
+
+    .cta::after {
+      width: 300px;
+      height: 300px;
+      left: -150px;
+      bottom: -180px;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .cta h2 {
+      font-size: 34px;
+      margin-bottom: 6px;
+    }
+
+    .cta p {
+      opacity: .85;
+      font-size: 14px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cta .btn-white {
+      background: white;
+      color: var(--primary-dark);
+    }
+
+    .cta .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    }
+
+    .cta .btn-transparent {
+      color: white;
+      border: 1px solid rgba(255,255,255,.45);
+    }
+
+    .cta .btn-transparent:hover {
+      background: rgba(255,255,255,.1);
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      background: var(--bg);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 25px;
+    }
+
+    .contact-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 10px 35px rgba(8,127,131,.06);
+    }
+
+    .contact-card h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 13px;
+      margin-bottom: 18px;
+    }
+
+    .contact-icon {
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 12px;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .contact-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .map {
+      width: 100%;
+      min-height: 390px;
+      border: 0;
+      border-radius: 20px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #073f41;
+      color: white;
+      padding: 55px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 50px;
+      padding-bottom: 40px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      background: white;
+      border-radius: 12px;
+    }
+
+    .footer-logo strong {
+      font-size: 18px;
+    }
+
+    .footer p {
+      color: rgba(255,255,255,.68);
+      font-size: 12px;
+    }
+
+    .footer h4 {
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.68);
+      font-size: 12px;
+      transition: .2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: rgba(255,255,255,.5);
+      font-size: 11px;
+    }
+
+    /* =========================
+       FLOATING BUTTONS
+    ========================= */
+
+    .floating {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 900;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .float-btn {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      box-shadow: 0 10px 25px rgba(0,0,0,.15);
+      transition: .25s;
+      font-size: 18px;
+    }
+
+    .float-btn:hover {
+      transform: translateY(-3px) scale(1.04);
+    }
+
+    .float-phone {
+      background: var(--primary);
+    }
+
+    .float-line {
+      background: #06c755;
+    }
+
+    .back-top {
+      background: #244849;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+    }
+
+    .back-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       REVEAL
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons,
+      .hero-info {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        max-width: 850px;
+        margin: auto;
+      }
+
+      .slider {
+        min-height: 420px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-content {
+        text-align: center;
+      }
+
+      .about-list {
+        text-align: left;
+        max-width: 600px;
+        margin: auto;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+
+      .container {
+        width: min(100% - 28px, 600px);
+      }
+
+      .nav-inner {
+        height: 70px;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 14px;
+        right: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        background: rgba(255,255,255,.98);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: 0 20px 50px rgba(0,0,0,.10);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        padding-top: 100px;
+        padding-bottom: 40px;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      /*
+        มือถือ:
+        เพิ่มพื้นที่ให้ภาพเห็นเต็มมากขึ้น
+      */
+
+      .slider-shell {
+        padding: 7px;
+        border-radius: 22px;
+      }
+
+      .slider {
+        aspect-ratio: 4 / 3;
+        min-height: 0;
+        border-radius: 17px;
+      }
+
+      .slider-label {
+        left: 13px;
+        bottom: 13px;
+        font-size: 10px;
+      }
+
+      .trust-card {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 3px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .rights-grid,
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-image-inner,
+      .about-image img {
+        min-height: 320px;
+      }
+
+      .about-content h2 {
+        font-size: 30px;
+      }
+
+      .hours-box {
+        padding: 22px;
+      }
+
+      .hours-row {
+        font-size: 13px;
+      }
+
+      .cta-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cta-buttons {
+        justify-content: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .floating {
+        right: 13px;
+        bottom: 13px;
+      }
+    }
+
+    @media (max-width: 450px) {
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .hero-info {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .slider {
+        aspect-ratio: 1 / .82;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================== -->
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+
+      <a href="#home" class="logo">
+        <img src="prosmuk01.jpg" alt="โลโก้พร้อมสุขคลินิกเวชกรรม">
+        <div class="logo-text">
+          <strong>พร้อมสุขคลินิกเวชกรรม</strong>
+          <span>PROMSUK CLINIC</span>
+        </div>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="เปิดเมนู">
+        ☰
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">หน้าแรก</a></li>
+          <li><a href="#services">บริการ</a></li>
+          <li><a href="#about">เกี่ยวกับคลินิก</a></li>
+          <li><a href="#hours">เวลาเปิดบริการ</a></li>
+          <li><a href="#contact">ติดต่อ</a></li>
+          <li>
+            <a href="tel:0969656588" class="nav-call">
+              ☎ โทรคลินิก
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main id="home">
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <!-- ข้อความ -->
+        <div class="hero-content reveal">
+
+          <div class="hero-badge">
+            พร้อมดูแลสุขภาพของคุณ
+          </div>
+
+          <h1>
+            พร้อมสุข<br>
+            <span>คลินิกเวชกรรม</span>
+          </h1>
+
+          <p class="hero-description">
+            คลินิกเวชกรรมในอำเภอท่ามะกา
+            ให้บริการตรวจรักษาโรคทั่วไป
+            พร้อมคำแนะนำด้านสุขภาพ
+            ด้วยความใส่ใจและเป็นกันเอง
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="tel:0969656588"
+              class="btn btn-primary"
+            >
+              ☎ โทรสอบถาม
+            </a>
+
+            <a
+              href="#contact"
+              class="btn btn-outline"
+            >
+              📍 ดูตำแหน่งคลินิก
+            </a>
+
+          </div>
+
+          <div class="hero-info">
+
+            <div class="hero-info-item">
+              <div class="hero-info-icon">📍</div>
+              <span>ท่ามะกา จ.กาญจนบุรี</span>
+            </div>
+
+            <div class="hero-info-item">
+              <div class="hero-info-icon">🕐</div>
+              <span>เปิดบริการทุกวัน</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- รูปภาพ -->
+        <div class="hero-visual reveal">
+
+          <div class="slider-shell">
+
+            <div class="slider" id="heroSlider">
+
+              <div class="slide active">
+                <img
+                  src="prosmuk02.jpg"
+                  alt="ภาพบรรยากาศพร้อมสุขคลินิกเวชกรรม"
+                >
+              </div>
+
+              <div class="slide">
+                <img
+                  src="prosmuk03.jpg"
+                  alt="ภาพภายในพร้อมสุขคลินิกเวชกรรม"
+                >
+              </div>
+
+              <div class="slide">
+                <img
+                  src="prosmuk04.jpg"
+                  alt="ภาพพร้อมสุขคลินิกเวชกรรม"
+                >
+              </div>
+
+              <div class="slide">
+                <img
+                  src="prosmuk05.jpg"
+                  alt="ภาพบรรยากาศคลินิก"
+                >
+              </div>
+
+              <div class="slide">
+                <img
+                  src="prosmuk06.jpg"
+                  alt="ภาพบริการของพร้อมสุขคลินิก"
+                >
+              </div>
+
+              <div class="slider-label">
+                พร้อมสุขคลินิกเวชกรรม
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TRUST
+    ========================== -->
+
+    <div class="trust-bar">
+
+      <div class="container">
+
+        <div class="trust-card reveal">
+
+          <div class="trust-item">
+            <div class="trust-icon">✓</div>
+            <div>
+              <strong>ดูแลอย่างใส่ใจ</strong>
+              <span>ให้คำแนะนำตามความเหมาะสม</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">♥</div>
+            <div>
+              <strong>บริการด้านสุขภาพ</strong>
+              <span>ตรวจรักษาและติดตามอาการ</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">📍</div>
+            <div>
+              <strong>ทำเลเดินทางสะดวก</strong>
+              <span>หลังโลตัสท่ามะกา</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         RIGHTS
+    ========================== -->
+
+    <section class="rights-section">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-label">HEALTHCARE</span>
+          <h2>ดูแลสุขภาพอย่างมั่นใจ</h2>
+          <p>
+            พร้อมสุขคลินิกเวชกรรมมุ่งเน้นการดูแลผู้รับบริการ
+            ด้วยความสะดวก ใส่ใจ และเป็นกันเอง
+          </p>
+        </div>
+
+        <div class="rights-grid">
+
+          <div class="right-card reveal">
+            <div class="right-number">01</div>
+            <h3>ตรวจรักษาโรคทั่วไป</h3>
+            <p>
+              ให้บริการตรวจอาการเจ็บป่วยทั่วไป
+              และให้คำแนะนำด้านสุขภาพ
+            </p>
+          </div>
+
+          <div class="right-card reveal">
+            <div class="right-number">02</div>
+            <h3>รับคำแนะนำด้านสุขภาพ</h3>
+            <p>
+              ให้คำแนะนำในการดูแลสุขภาพ
+              และการปฏิบัติตัวเบื้องต้น
+            </p>
+          </div>
+
+          <div class="right-card reveal">
+            <div class="right-number">03</div>
+            <h3>สิทธิ 30 บาทรักษาทุกที่</h3>
+            <p>
+              รองรับตามสิทธิและหลักเกณฑ์
+              ที่กำหนดในแต่ละกรณี
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
+    <section class="services" id="services">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-label">OUR SERVICES</span>
+          <h2>บริการของเรา</h2>
+          <p>
+            บริการด้านสุขภาพที่ออกแบบให้เข้าถึงง่าย
+            และสะดวกสำหรับคนในชุมชน
+          </p>
+        </div>
+
+        <div class="service-grid">
+
+          <div class="service-card reveal">
+            <div class="service-icon">🩺</div>
+            <h3>ตรวจรักษาโรคทั่วไป</h3>
+            <p>
+              ตรวจประเมินอาการและให้คำแนะนำ
+              ตามความเหมาะสม
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">💊</div>
+            <h3>รับยาและคำแนะนำ</h3>
+            <p>
+              รับยาและคำแนะนำในการดูแลตัวเอง
+              หลังรับบริการ
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">💉</div>
+            <h3>การฉีดยา</h3>
+            <p>
+              ให้บริการฉีดยาตามความเหมาะสม
+              และคำแนะนำจากบุคลากรทางการแพทย์
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">📋</div>
+            <h3>ใบรับรองแพทย์</h3>
+            <p>
+              ให้บริการเกี่ยวกับใบรับรองแพทย์
+              ตามเงื่อนไขและการประเมิน
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">❤️</div>
+            <h3>คำแนะนำด้านสุขภาพ</h3>
+            <p>
+              ให้ข้อมูลและแนวทางดูแลสุขภาพ
+              เบื้องต้น
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">📅</div>
+            <h3>นัดติดตามอาการ</h3>
+            <p>
+              ติดตามอาการและนัดหมาย
+              ตามความเหมาะสม
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROCESS
+    ========================== -->
+
+    <section class="process">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-label">HOW IT WORKS</span>
+          <h2>ขั้นตอนการรับบริการ</h2>
+          <p>
+            ขั้นตอนง่าย ๆ เพื่อให้คุณเข้ารับบริการได้อย่างสะดวก
+          </p>
+        </div>
+
+        <div class="process-grid">
+
+          <div class="process-card reveal">
+            <div class="process-number">1</div>
+            <h3>ลงทะเบียน</h3>
+            <p>แจ้งข้อมูลเพื่อเข้ารับบริการ</p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="process-number">2</div>
+            <h3>ซักประวัติ</h3>
+            <p>แจ้งอาการและข้อมูลสุขภาพ</p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="process-number">3</div>
+            <h3>ตรวจ</h3>
+            <p>รับการตรวจประเมินอาการ</p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="process-number">4</div>
+            <h3>รับคำแนะนำ</h3>
+            <p>รับคำแนะนำและการรักษา</p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="process-number">5</div>
+            <h3>ติดตามอาการ</h3>
+            <p>นัดติดตามตามความเหมาะสม</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about" id="about">
+
+      <div class="container about-grid">
+
+        <div class="about-image reveal">
+
+          <div class="about-image-inner">
+
+            <img
+              src="prosmuk02.jpg"
+              alt="พร้อมสุขคลินิกเวชกรรม"
+            >
+
+          </div>
+
+        </div>
+
+        <div class="about-content reveal">
+
+          <span class="section-label">ABOUT PROMSUK CLINIC</span>
+
+          <h2>
+            คลินิกใกล้บ้าน
+            <br>
+            ที่พร้อมดูแลคุณ
+          </h2>
+
+          <p>
+            พร้อมสุขคลินิกเวชกรรม
+            ตั้งอยู่ในอำเภอท่ามะกา จังหวัดกาญจนบุรี
+            ให้บริการด้านสุขภาพสำหรับคนในชุมชน
+            โดยมุ่งเน้นความสะดวกและการดูแลอย่างใส่ใจ
+          </p>
+
+          <ul class="about-list">
+
+            <li>
+              ตั้งอยู่หลังโลตัสท่ามะกา
+            </li>
+
+            <li>
+              ใกล้ตลาดคลองถมท่ามะกา
+            </li>
+
+            <li>
+              เดินทางสะดวกสำหรับผู้รับบริการในพื้นที่
+            </li>
+
+            <li>
+              ให้บริการตรวจรักษาโรคทั่วไป
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOURS
+    ========================== -->
+
+    <section class="hours" id="hours">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-label">OPENING HOURS</span>
+          <h2>เวลาเปิดให้บริการ</h2>
+          <p>
+            แนะนำให้โทรสอบถามก่อนเดินทางเพื่อความสะดวก
+          </p>
+        </div>
+
+        <div class="hours-box reveal">
+
+          <div class="hours-row">
+            <span class="hours-day">จันทร์ – ศุกร์</span>
+            <span class="hours-time">08:00 – 19:00 น.</span>
+          </div>
+
+          <div class="hours-row">
+            <span class="hours-day">เสาร์ – อาทิตย์</span>
+            <span class="hours-time">08:00 – 12:00 น.</span>
+          </div>
+
+          <p class="hours-note">
+            * เวลาเปิดบริการอาจมีการเปลี่ยนแปลง
+            กรุณาโทรสอบถามก่อนเข้ารับบริการ
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+      <div class="container cta-inner">
+
+        <div>
+          <h2>มีข้อสงสัยเกี่ยวกับบริการ?</h2>
+          <p>
+            ติดต่อพร้อมสุขคลินิกเวชกรรมเพื่อสอบถามข้อมูลเพิ่มเติม
+          </p>
+        </div>
+
+        <div class="cta-buttons">
+
+          <a
+            href="tel:0969656588"
+            class="btn btn-white"
+          >
+            ☎ 096-965-6588
+          </a>
+
+          <a
+            href="https://line.me/ti/p/YNtNU78fMZ"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-transparent"
+          >
+            LINE @prosmukclinic
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="contact" id="contact">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-label">CONTACT US</span>
+          <h2>ติดต่อพร้อมสุขคลินิก</h2>
+          <p>
+            สามารถติดต่อสอบถามหรือดูเส้นทางมายังคลินิกได้จากข้อมูลด้านล่าง
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-card reveal">
+
+            <h3>ข้อมูลการติดต่อ</h3>
+
+            <div class="contact-item">
+
+              <div class="contact-icon">📍</div>
+
+              <div>
+                <strong>ที่อยู่</strong>
+                <span>
+                  52/119-120 หมู่ 3
+                  ตำบลท่ามะกา อำเภอท่ามะกา
+                  จังหวัดกาญจนบุรี 71120
+                </span>
+              </div>
+
+            </div>
+
+            <div class="contact-item">
+
+              <div class="contact-icon">☎</div>
+
+              <div>
+                <strong>โทรศัพท์</strong>
+                <span>
+                  096-965-6588<br>
+                  034-914-270
+                </span>
+              </div>
+
+            </div>
+
+            <div class="contact-item">
+
+              <div class="contact-icon">LINE</div>
+
+              <div>
+                <strong>LINE</strong>
+                <span>@prosmukclinic</span>
+              </div>
+
+            </div>
+
+            <div class="contact-item">
+
+              <div class="contact-icon">📌</div>
+
+              <div>
+                <strong>จุดสังเกต</strong>
+                <span>
+                  หลังโลตัสท่ามะกา
+                  ใกล้ตลาดคลองถมท่ามะกา
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-card reveal">
+
+            <iframe
+              class="map"
+              src="https://www.google.com/maps?q=พร้อมสุขคลินิกเวชกรรม+52/119-120+หมู่+3+ท่ามะกา+กาญจนบุรี&output=embed"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <div class="footer-logo">
+
+            <img
+              src="prosmuk01.jpg"
+              alt="โลโก้พร้อมสุขคลินิกเวชกรรม"
+            >
+
+            <div>
+              <strong>พร้อมสุขคลินิกเวชกรรม</strong>
+            </div>
+
+          </div>
+
+          <p>
+            คลินิกเวชกรรมในอำเภอท่ามะกา
+            จังหวัดกาญจนบุรี
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h4>เมนู</h4>
+
+          <ul class="footer-links">
+
+            <li><a href="#home">หน้าแรก</a></li>
+            <li><a href="#services">บริการ</a></li>
+            <li><a href="#about">เกี่ยวกับคลินิก</a></li>
+            <li><a href="#hours">เวลาเปิดบริการ</a></li>
+            <li><a href="#contact">ติดต่อ</a></li>
+
+          </ul>
+
+        </div>
+
+
+        <div>
+
+          <h4>ติดต่อ</h4>
+
+          <ul class="footer-links">
+
+            <li>
+              <a href="tel:0969656588">
+                096-965-6588
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:034914270">
+                034-914-270
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="https://line.me/ti/p/YNtNU78fMZ"
+                target="_blank"
+                rel="noopener"
+              >
+                LINE @prosmukclinic
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 PromSuk Clinic
+        </span>
+
+        <span>
+          Portfolio / Demo Website
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       FLOATING BUTTONS
+  ========================== -->
+
+  <div class="floating">
+
+    <a
+      href="tel:0969656588"
+      class="float-btn float-phone"
+      aria-label="โทรคลินิก"
+    >
+      ☎
+    </a>
+
+    <a
+      href="https://line.me/ti/p/YNtNU78fMZ"
+      target="_blank"
+      rel="noopener"
+      class="float-btn float-line"
+      aria-label="LINE"
+    >
+      L
+    </a>
+
+    <button
+      class="float-btn back-top"
+      id="backTop"
+      aria-label="กลับด้านบน"
+    >
+      ↑
+    </button>
+
+  </div>
+
+
+  <script>
+
+    /* =========================
+       NAVBAR
+    ========================== */
+
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 20) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+
+    });
+
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+
+    });
+
+
+    /* =========================
+       HERO AUTO SLIDER
+       - ไม่มีปุ่ม
+       - ไม่มีจุด
+       - เปลี่ยนอัตโนมัติ
+       - วนซ้ำ
+    ========================== */
+
+    const slides = document.querySelectorAll(".slide");
+
+    let currentSlide = 0;
+
+    function nextSlide() {
+
+      slides[currentSlide].classList.remove("active");
+
+      currentSlide++;
+
+      if (currentSlide >= slides.length) {
+        currentSlide = 0;
+      }
+
+      slides[currentSlide].classList.add("active");
+
+    }
+
+    setInterval(nextSlide, 4000);
+
+
+    /* =========================
+       REVEAL ANIMATION
+    ========================== */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const revealObserver =
+      new IntersectionObserver(
+        (entries, observer) => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("show");
+
+              observer.unobserve(entry.target);
+
+            }
+
+          });
+
+        },
+        {
+          threshold: .12
+        }
+      );
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+
+
+    /* =========================
+       BACK TO TOP
+    ========================== */
+
+    const backTop =
+      document.getElementById("backTop");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 500) {
+        backTop.classList.add("show");
+      } else {
+        backTop.classList.remove("show");
+      }
+
+    });
+
+    backTop.addEventListener("click", () => {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
